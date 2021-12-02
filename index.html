@@ -1,3 +1,20 @@
+<p>
+  Displaying the user’s weekly budget which will be updated every time a new
+  item is added to the list of purchased items. 
+  <p>
+  Allow the user to choose between four categories for each purchase. Entertainment Food Clothing Bills 
+  <p>
+  Must indicate to the user how much money has been spent, which requires an
+  easy-to-understand layout. 
+  <p>
+  The user should be able to see how much money is being spent on each of the four categories. 
+  <p>
+  If their budget is consumed within the week, they must be notified that they cannot purchase additional items.
+</p>
+</p>
+</p>
+</p>
+</p>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +25,56 @@
     <title>Budget Buddy</title>
   </head>
   <body>
+    <header class="header">
+      <h1>Track Yo Money!</h1>
+    </header>
+    <section class="budget-submit-section">
+      <form class="budget-submit-form">
+        <label for="budget" name="budget">Budget</label>
+        <input type="number" id="budget" placeholder="$0.00" />
+        <button type="submit">Please Enter Your Weekly Budget</button>
+      </form>
+    </section>
+    <section>
+    <label for="categories">Categories</label>
+    <select id="categories">
+      <option>Bills</option>
+      <option>Food</option>
+      <option>Clothes</option>
+      <option>Entertainment</option>
+      <input class="" type="number" placeholder= "Enter Amount Spent">
+      <label for="">Description</label>
+      <input type="text" placeholder="Where Did You Spend This?">
+      <button>Submit</button>
+    </select>
+</section>
+<table>
+    <tr>
+      <td>Budget Balance:</td>
+      <td class="balance"></td>
+    </tr>
+    <tr>
+      <td>Total Spent:</td>
+      <td class="total"></td>
+    </tr>
+    <tr>
+      <td>Bills:</td>
+      <td class="bills"></td>
+    </tr>
+    <tr>
+      <td>Clothing:</td>
+      <td class="clothing"></td>
+    </tr>
+    <tr>
+      <td>Entertainment:</td>
+      <td class="entertainment"></td>
+    </tr>
+    <tr>
+      <td>Food:</td>
+      <td class="food"></td>
+    </tr>
+  </table>
+</section>
     <script src="budgetbuddy.js"></script>
   </body>
 </html>
