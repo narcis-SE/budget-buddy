@@ -6,19 +6,8 @@
   border: 5px solid purple;
 }
 
-.budget-table {
-  border: 5px solid red;
-}
-
-.item-table {
-  border: 5px solid black;
-  border-spacing: 100px;
-  column-width: 500px;
-}
-
-.pie-chart-section {
-  width: 100px;
-  height: 100px;
+.tables {
+  border: 5px red solid;
 }
 
 html,
