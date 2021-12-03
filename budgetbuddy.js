@@ -1,6 +1,12 @@
-nick - branch;
-console.log("Hi");
-console.log("hello");
-main;
+const budget = document.getElementById("budget");
 
-//disable buttons once limit is passed
+const submitForm = document.getElementById("budget-submit-form");
+
+submitForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let totalBudget = budget.value;
+
+
+    console.log(totalBudget);
+});
+
