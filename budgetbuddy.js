@@ -1,3 +1,5 @@
+console;
+
 const budget = document.getElementById("budget");
 const itemDescriptionForm = document.querySelector(".item-description-form");
 const itemTableBody = document.querySelector(".item-table-body");
