@@ -32,10 +32,51 @@
       <form class="budget-submit-form" id = "budget-submit-form">
         <label for="budget" name="budget">Budget</label>
         <input type="number" id="budget" placeholder="$0.00" />
-        <table class="budget-table">
+
+        <label for="bills" name="bills">Bills</label>
+        <input type="number" id="bills" placeholder="$0.00" />
+
+        <label for="food" name="food">Food</label>
+        <input type="number" id="food" placeholder="$0.00" />
+
+        <label for="clothes" name="clothes">Clothes</label>
+        <input type="number" id="clothes" placeholder="$0.00" />
+
+        <label for="entertainment" name="entertainment">Entertainment</label>
+        <input type="number" id="entertainment" placeholder="$0.00" />
+
         <button type="submit">Please Enter Your Weekly Budget</button>
       </form>
+
+      <table>
+        <tr>
+          <td>Budget Balance:</td>
+          <td class="balance"></td>
+        </tr>
+        <tr>
+          <td>Total Spent:</td>
+          <td class="total"></td>
+        </tr>
+        <tr>
+          <td>Bills:</td>
+          <td class="bills"></td>
+        </tr>
+        <tr>
+          <td>Clothing:</td>
+          <td class="clothing"></td>
+        </tr>
+        <tr>
+          <td>Entertainment:</td>
+          <td class="entertainment"></td>
+        </tr>
+        <tr>
+          <td>Food:</td>
+          <td class="food"></td>
+        </tr>
+      </table>
+      
     </section>
+    <img src="" alt="" id = "image">
     <section class="categories-section">
     <label for="categories">Categories</label>
     <select id="categories">
@@ -54,7 +95,7 @@
 <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
 
 <div id="container"></div>
-<img src="" alt="stop-image">
+
     <script src="budgetbuddy.js"></script>
   </body>
 </html>
