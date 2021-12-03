@@ -1,4 +1,6 @@
-nick-branch
+nick - branch;
 console.log("Hi");
 console.log("hello");
-main
+main;
+
+//disable buttons once limit is passed
