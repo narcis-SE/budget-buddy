@@ -113,6 +113,10 @@ expenseForm.addEventListener("submit", (e) => {
     Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
 
   if (budgetBuddyDataBase.remainingBalance < 0) {
+
+    document.createElement("img").src = "images/stop.jpg";
+    document.querySelector("img").src = "images/stop.jpg";
+    document.querySelector;
     document.createElement("img");
     document.querySelector("img").src = "images/stop.jpg";
 
@@ -128,6 +132,7 @@ expenseForm.addEventListener("submit", (e) => {
     alert("Halfway through your budget, please keep that in mind.");
     document.getElementById("budget-balance-container").style.backgroundColor = "yellow";
     ifStopper = false; 
+
   }
   updateExpensesTable();
   createTable();
