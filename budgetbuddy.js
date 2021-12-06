@@ -128,12 +128,9 @@ expenseForm.addEventListener("submit", (e) => {
   }
   //checks if the remaining balance is less than half of the total, then alerts the person using it once.
   if (
-    budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total &&
-    ifStopper
-  ) {
-    alert("Halfway through your budget, please keep that in mind.");
+    budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total && ifStopper) {
+    alert("Getting close to the end of your budget, keep that in mind!");
     document.querySelector("body").style.backgroundColor = "#D9B611";
-
     ifStopper = false;
   }
   updateExpensesTable();
