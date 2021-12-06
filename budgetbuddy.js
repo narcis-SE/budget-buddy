@@ -111,8 +111,9 @@ expenseForm.addEventListener("submit", (e) => {
     Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
 
   if (budgetBuddyDataBase.remainingBalance < 0) {
-    document.createElement("img");
-    document.querySelector("img").src = "assets/stop.jpg";
+    document.createElement("img").src = "images/stop.jpg";
+    document.querySelector("img").src = "images/stop.jpg";
+    document.querySelector;
   }
   updateExpensesTable();
   createTable();

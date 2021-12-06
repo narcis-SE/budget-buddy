@@ -1,13 +1,71 @@
-.budget-submit-section {
-  border: 5px solid green;
+body {
+  background-color: green;
 }
 
 .item-description-form-container {
+  display: flex;
+  flex-direction: column;
   border: 5px solid purple;
 }
 
-.tables {
+.item-description-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-description-form-element {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: orange;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#add-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: black;
+}
+
+.budget-label {
+  display: flex;
+  color: white;
+  font-size: 30px;
+  justify-content: center;
+  padding: 5px;
+}
+
+.budget-form {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 5px red solid;
+}
+
+.update-balance-button {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.budget-balance-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 5px black solid; */
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
 }
 
 html,
@@ -18,13 +76,50 @@ body {
   padding: 0;
 }
 
-body,
-main {
-  display: flex;
-  justify-content: space-between;
+.clear {
+  background-image: "images/stop.jpg";
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 50px;
+  font-size: 30px;
 }
 
 .logo {
-  width: 200px;
+  width: 100vw;
   height: 200px;
+}
+
+td {
+  color: white;
+  font-size: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .budget-balance-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 5px yellow solid;
+    height: 200px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  td {
+    color: white;
+    font-size: 20px;
+  }
 }

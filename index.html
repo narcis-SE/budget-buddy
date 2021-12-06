@@ -7,27 +7,31 @@
 
     <link rel="stylesheet" href="style.css" />
     <title>Budget Buddy</title>
+    <style>
+
+    </style>
   </head>
   <body>
+
     <header class="header">
       <div class="title-logo-container">
-        <h1 class="page-title">Track Yo Money!</h1>
         <img
-          src="assets/budget-image.jpg"
+          src="images/budget image.jpg"
           alt="Bugdet Buddy logo"
           class="logo"
         />
       </div>
 
-      <button class="clear">Clear</button>
+      
     </header>
     <main class="main">
       <section class="budget-balance-container">
         <form class="budget-form">
-          <label for="budget" name="budget">Budget</label>
+          <label  class="budget-label" for="budget" name="budget">Budget</label>
           <input
+         
             type="text"
-            placeholder="Budget"
+            placeholder="Please Enter Budget"
             name="budget"
             id="budget"
             autocomplete="off"
@@ -61,6 +65,7 @@
           </tr>
       </section>
       <section class="item-description-form-container">
+        <h3>What Did You Spend Money On Now?</h3>
         <form class="item-description-form">
           <input
             class="item-description-form-element"
@@ -94,7 +99,7 @@
               id="amount"
             />
           </div>
-          <button class="item-description-form-element" disabled="disabled">
+          <button id="add-button" class="item-description-form-element" disabled="disabled">
             Add Item
           </button>
         </form>
@@ -109,7 +114,10 @@
           </tr>
         </tbody>
       </table>
+      <footer>
+      <button class="clear">Lets Start Fresh</button>
+    </footer>
     </main>
-    <script src="script.js"></script>
+    <script src="budgetbuddy.js"></script>
   </body>
 </html>
