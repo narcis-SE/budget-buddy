@@ -1,89 +1,157 @@
-const budget = document.getElementById("budget");
-const itemDescriptionForm = document.querySelector(".item-description-form");
-const itemTableBody = document.querySelector(".item-table-body");
-const bills = document.getElementById("bills");
-const food = document.getElementById("food");
-const clothes = document.getElementById("clothes");
-const entertainment = document.getElementById("entertainment");
+"use strict";
+const budgetForm = document.querySelector(".budget-form");
+const balanceLeft = document.querySelector(".balance");
+const expenseForm = document.querySelector(".item-description-form");
+const total = document.querySelector(".total");
+const bills = document.querySelector(".bills");
+const clothing = document.querySelector(".clothing");
+const entertainment = document.querySelector(".entertainment");
+const food = document.querySelector(".food");
+const itemsTable = document.querySelector(".item-table-body");
 const clearButton = document.querySelector(".clear");
-const submitForm = document.getElementById("budget-submit-form");
 
-document.querySelector(".balance").textContent = "$0";
-document.querySelector(".total").textContent = "$0";
-document.getElementById("bills").textContent = "$0";
-document.getElementById("clothing").textContent = "$0";
-document.getElementById("entertainment").textContent = "$0";
-document.getElementById("food").textContent = "$0";
+balanceLeft.textContent = "$0";
+total.textContent = "$0";
+bills.textContent = "$0";
+clothing.textContent = "$0";
+entertainment.textContent = "$0";
+food.textContent = "$0";
 
-submitForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+let budgetBuddyDataBase = {
+  budget: 0,
+  remainingBalance: 0,
+  total: 0,
+  bills: 0,
+  clothing: 0,
+  entertainment: 0,
+  food: 0,
 
-  let totalBudget = budget.value;
-  let totalBills = bills.value;
-  // let totalFood = food.value;
-  // let totalClothes = clothes.value;
-  // let totalEntertainment = entertainment.value;
-  console.log(totalBudget);
+  expenses: [],
+};
 
-  let balance = totalBudget - totalBills;
-  if (totalBudget < 0) {
-    document.getElementById("image").src = "images/stop.jpg";
+const updateRemainingBalance = () => {
+  const budgetInput = document.querySelector("#budget").value;
+  budgetBuddyDataBase.budget = Number(budgetInput);
+  budgetBuddyDataBase.budget =
+    Math.round(budgetBuddyDataBase.budget * 100) / 100;
+
+  budgetBuddyDataBase.remainingBalance =
+    Number(budgetInput) - budgetBuddyDataBase.total;
+  budgetBuddyDataBase.remainingBalance =
+    Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
+  balanceLeft.textContent = `$${budgetBuddyDataBase.remainingBalance}`;
+};
+
+budgetForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  updateRemainingBalance();
+  document.getElementById("budget").disabled = true;
+  document.querySelector(".update-balance-button").classList.add("inactive");
+  document
+    .querySelectorAll(".item-description-form-element")
+    .forEach((item) => {
+      item.disabled = false;
+    });
+  e.target.classList.add("inactive");
+});
+
+const createTable = () => {
+  itemsTable.innerHTML = `<tr>
+    <th class="item-header">Item</th>
+    <th class="item-header">Category</th>
+    <th class="item-header">Amount ($)</th>
+    <th class="item-header"></th>
+  </tr>`;
+
+  budgetBuddyDataBase.expenses.forEach((expense, index) => {
+    const newItem = document.createElement("tr");
+    const description = document.createElement("td");
+    const category = document.createElement("td");
+    const amount = document.createElement("td");
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete");
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.textContent = "Delete";
+    description.textContent = expense.description;
+    category.textContent = expense.category;
+    amount.textContent = `$${expense.amount}`;
+    itemsTable.append(newItem);
+    newItem.append(description, category, amount, deleteButton);
+  });
+};
+
+const updateExpensesTable = () => {
+  balanceLeft.textContent = `$${budgetBuddyDataBase.remainingBalance}`;
+  total.textContent = `$${budgetBuddyDataBase.total}`;
+  bills.textContent = `$${budgetBuddyDataBase.bills}`;
+  clothing.textContent = `$${budgetBuddyDataBase.clothing}`;
+  entertainment.textContent = `$${budgetBuddyDataBase.entertainment}`;
+  food.textContent = `$${budgetBuddyDataBase.food}`;
+};
+
+expenseForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let description = document.querySelector("#item-description").value;
+  let category = document.querySelector("#category").value;
+  let amount = Number(document.querySelector("#amount").value);
+  console.log(amount);
+  budgetBuddyDataBase.expenses.push({
+    description,
+    category,
+    amount,
+  });
+  budgetBuddyDataBase.total += amount;
+  budgetBuddyDataBase.total = Math.round(budgetBuddyDataBase.total * 100) / 100;
+  budgetBuddyDataBase[category] += amount;
+  budgetBuddyDataBase[category] =
+    Math.round(budgetBuddyDataBase[category] * 100) / 100;
+  budgetBuddyDataBase.remainingBalance =
+    budgetBuddyDataBase.budget - budgetBuddyDataBase.total;
+  budgetBuddyDataBase.remainingBalance =
+    Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
+
+  if (budgetBuddyDataBase.remainingBalance < 0) {
+    document.createElement("img");
+    document.querySelector("img").src = "assets/stop.jpg";
   }
+  updateExpensesTable();
+  createTable();
+  expenseForm.reset();
+});
 
-  itemDescriptionForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const addedItemRow = document.createElement("tr");
-    itemTableBody.append(addedItemRow);
-    for (let i = 0; i < 4; i++) {
-      const addedItem = document.createElement("td");
-      addedItemRow.append(addedItem);
-      if (i === 0) {
-        addedItem.textContent =
-          document.querySelector("#item-description").value;
-      } else if (i === 1) {
-        addedItem.textContent = document.querySelector("#category").value;
-      } else if (i === 2) {
-        addedItem.textContent = `$${document.querySelector("#amount").value}`;
-      } else if (i === 3) {
-        const button = document.createElement("button");
-        addedItem.append(button);
-        button.textContent = "Delete";
-        button.classList.add("delete");
-      }
-    }
-    //   grabs category we've selected
-    const category = document.querySelector("#category").value;
-    //   removes $ sign
-    document.querySelector(`.${category}`).textContent = document
-      .querySelector(`.${category}`)
-      .textContent.slice(1);
-    // sets variable amount to the value we have input
-    let amount = parseFloat(document.querySelector("#amount").value);
-    //   sets variable total to the integer found in the selected category
-    let total = parseFloat(document.querySelector(`.${category}`).textContent);
-    //   sets variable balance equal to total + amount
-    let balance = total + amount;
-    //   puts balance into proper td in table
-    document.querySelector(`.${category}`).textContent = `$${balance}`;
-    calculateTotal();
-    updateBalance();
-    itemDescriptionForm.reset();
-  });
+itemsTable.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    let index = e.target.getAttribute("data-index");
+    let amount = budgetBuddyDataBase.expenses[index].amount;
+    let category = budgetBuddyDataBase.expenses[index].category;
+    budgetBuddyDataBase.total -= amount;
+    budgetBuddyDataBase.total =
+      Math.round(budgetBuddyDataBase.total * 100) / 100;
+    budgetBuddyDataBase[category] -= amount;
+    budgetBuddyDataBase[category] =
+      Math.round(budgetBuddyDataBase[category] * 100) / 100;
+    budgetBuddyDataBase.expenses.splice(index, 1);
 
-  clearButton.addEventListener("click", () => {
-    for (
-      let i = 3;
-      i < document.querySelector(".item-table-body").childNodes.length;
-      i++
-    ) {
-      document.querySelector(".item-table-body").childNodes[i].remove();
-    }
-    document.querySelector(".balance").textContent = "$0";
-    document.querySelector(".total").textContent = "$0";
-    document.querySelector(".Bills").textContent = "$0";
-    document.querySelector(".Clothing").textContent = "$0";
-    document.querySelector(".Entertainment").textContent = "$0";
-    document.querySelector(".Food").textContent = "$0";
-    itemDescriptionForm.reset();
-  });
+    updateExpensesTable();
+    updateRemainingBalance();
+    createTable();
+  }
+});
+
+clearButton.addEventListener("click", () => {
+  budgetBuddyDataBase = {
+    budget: 0,
+    remainingBalance: 0,
+    total: 0,
+    bills: 0,
+    clothing: 0,
+    entertainment: 0,
+    food: 0,
+
+    expenses: [],
+  };
+  updateExpensesTable();
+  updateRemainingBalance();
+  createTable();
+  expenseForm.reset();
 });
