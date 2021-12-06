@@ -12,7 +12,6 @@
     </style>
   </head>
   <body>
-
     <header class="header">
       <div class="title-logo-container">
         <img
@@ -21,8 +20,6 @@
           class="logo"
         />
       </div>
-
-      
     </header>
     <main class="main">
       <section class="budget-balance-container">
@@ -68,7 +65,7 @@
         <h3>What Did You Spend Money On Now?</h3>
         <form class="item-description-form">
           <input
-            class="item-description-form-element"
+            class="item-description-form-element input-label"
             disabled="disabled"
             type="text"
             placeholder="Item Description"
@@ -103,17 +100,19 @@
             Add Item
           </button>
         </form>
+    
       </section>
-      <table class="items-table">
-        <tbody class="item-table-body">
-          <tr>
-            <th class="item-header">Item</th>
-            <th class="item-header">Category</th>
-            <th class="item-header">Amount ($)</th>
-            <th class="item-header"></th>
-          </tr>
-        </tbody>
-      </table>
+      <section>
+        <table class="items-table">
+          <tbody class="item-table-body">
+            <tr>
+              <th class="item-header">Item</th>
+              <th class="item-header">Category</th>
+              <th class="item-header">Amount ($)</th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <footer>
       <button class="clear">Lets Start Fresh</button>
     </footer>
