@@ -114,7 +114,6 @@ expenseForm.addEventListener("submit", (e) => {
     Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
 
   if (budgetBuddyDataBase.remainingBalance < 0) {
-
     document.createElement("img").src = "images/stop.jpg";
     document.querySelector("img").src = "images/stop.jpg";
     document.querySelector;
@@ -123,18 +122,19 @@ expenseForm.addEventListener("submit", (e) => {
 
     document.getElementById("add-button").disabled = true;
 
-    document.getElementById("budget-balance-container").style.backgroundColor = "red";
+    document.querySelector("body").style.backgroundColor = "red";
     ifStopper = false;
     alert("You have busted your budget!");
-
   }
-  //checks if the remaining balance is less than half of the total, then alerts the person using it once. 
-  if(budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total && ifStopper){
+  //checks if the remaining balance is less than half of the total, then alerts the person using it once.
+  if (
+    budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total &&
+    ifStopper
+  ) {
     alert("Halfway through your budget, please keep that in mind.");
-    document.getElementById("budget-balance-container").style.backgroundColor = "#D9B611";
-    
-    ifStopper = false; 
+    document.querySelector("body").style.backgroundColor = "#D9B611";
 
+    ifStopper = false;
   }
   updateExpensesTable();
   createTable();
@@ -174,7 +174,7 @@ clearButton.addEventListener("click", () => {
   };
   document.querySelector("img").src = "images/budget-image.jpg";
   document.getElementById("add-button").disabled = false;
-  document.getElementById("budget-balance-container").style.backgroundColor = "";
+  document.querySelector("body").style.backgroundColor = "";
   ifStopper = true;
   updateExpensesTable();
   updateRemainingBalance();

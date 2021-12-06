@@ -1,28 +1,44 @@
+input::placeholder {
+  color: black;
+  font-style: italic;
+}
 
 body {
   background-color: green;
 }
 
-.item-description-form-container {
+.budget-form {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  border: 5px solid purple;
+  justify-content: center;
+  /* border: 5px red solid; */
 }
 
 .item-description-form-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  /* border: 5px solid purple; */
+  margin-bottom: 10px;
 }
 
 .item-description-form-element {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  background-color: orange;
-  color: white;
+  background-color: white;
+
   font-size: 20px;
   font-weight: bold;
+}
+
+#budget {
+  font-size: 15px;
+  font-weight: bold;
+  height: 20px;
 }
 
 #add-button {
@@ -35,18 +51,11 @@ body {
 
 .budget-label {
   display: flex;
+  font-weight: bold;
   color: white;
   font-size: 30px;
   justify-content: center;
   padding: 5px;
-}
-
-.budget-form {
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 5px red solid;
 }
 
 .update-balance-button {
@@ -59,6 +68,8 @@ body {
 .budget-balance-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
   /* border: 5px black solid; */
 }
 
@@ -66,9 +77,8 @@ h3 {
   display: flex;
   justify-content: center;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
 }
-
 
 html,
 body {
@@ -76,9 +86,11 @@ body {
   padding: 0;
 }
 
+#category {
+  width: 100%;
+}
 
 .clear {
-  background-image: "images/stop.jpg";
   background-color: black;
   color: white;
   width: 100vw;
@@ -87,31 +99,42 @@ body {
 }
 
 .logo {
-  width: 100vw;
-  height: 200px;
-
+  width: 100%;
+  height: 250px;
 }
 
 td {
   color: white;
-  font-size: 20px;
+  font-size: 25px;
+  text-transform: capitalize;
 }
 
 footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  /* position: fixed; */
-  bottom: 0;
-  left: 0;
+}
+.item-header {
+  font-size: 25px;
+}
+
+.items-table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.delete {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {
   .budget-balance-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    border: 5px yellow solid;
+    flex-wrap: wrap;
+    justify-content: center;
     height: 200px;
   }
 
@@ -123,5 +146,6 @@ footer {
   td {
     color: white;
     font-size: 20px;
+    text-transform: capitalize;
   }
 }
