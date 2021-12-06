@@ -10,6 +10,8 @@ const food = document.querySelector(".food");
 const itemsTable = document.querySelector(".item-table-body");
 const clearButton = document.querySelector(".clear");
 
+var ifStopper = true;
+
 balanceLeft.textContent = "$0";
 total.textContent = "$0";
 bills.textContent = "$0";
@@ -111,9 +113,26 @@ expenseForm.addEventListener("submit", (e) => {
     Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
 
   if (budgetBuddyDataBase.remainingBalance < 0) {
+
     document.createElement("img").src = "images/stop.jpg";
     document.querySelector("img").src = "images/stop.jpg";
     document.querySelector;
+    document.createElement("img");
+    document.querySelector("img").src = "images/stop.jpg";
+
+    document.getElementById("add-button").disabled = true;
+
+    document.getElementById("budget-balance-container").style.backgroundColor = "red";
+    ifStopper = false;
+    alert("You have busted your budget!");
+
+  }
+  //checks if the remaining balance is less than half of the total, then alerts the person using it once. 
+  if(budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total && ifStopper){
+    alert("Halfway through your budget, please keep that in mind.");
+    document.getElementById("budget-balance-container").style.backgroundColor = "yellow";
+    ifStopper = false; 
+
   }
   updateExpensesTable();
   createTable();
@@ -151,6 +170,10 @@ clearButton.addEventListener("click", () => {
 
     expenses: [],
   };
+  document.querySelector("img").src = "images/budget-image.jpg";
+  document.getElementById("add-button").disabled = false;
+  document.getElementById("budget-balance-container").style.backgroundColor = "";
+  ifStopper = true;
   updateExpensesTable();
   updateRemainingBalance();
   createTable();
