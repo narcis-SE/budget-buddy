@@ -72,6 +72,8 @@ const createTable = () => {
     const amount = document.createElement("td");
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
+    deleteButton.classList.add("btn");
+    deleteButton.classList.add("btn-dark");
     deleteButton.setAttribute("data-index", index);
     deleteButton.textContent = "Delete";
     description.textContent = expense.description;
@@ -113,12 +115,10 @@ expenseForm.addEventListener("submit", (e) => {
   budgetBuddyDataBase.remainingBalance =
     Math.round(budgetBuddyDataBase.remainingBalance * 100) / 100;
 
-  if (budgetBuddyDataBase.remainingBalance < 0) {
-    document.createElement("img").src = "images/stop.jpg";
-    document.querySelector("img").src = "images/stop.jpg";
-    document.querySelector;
-    document.createElement("img");
-    document.querySelector("img").src = "images/stop.jpg";
+  if (budgetBuddyDataBase.remainingBalance <= 0) {
+    document.createElement("img").src = "images/stop.png";
+    document.querySelector("img").src = "images/stop.png";
+
 
     document.getElementById("add-button").disabled = true;
 
@@ -130,7 +130,8 @@ expenseForm.addEventListener("submit", (e) => {
   if (
     budgetBuddyDataBase.remainingBalance < budgetBuddyDataBase.total && ifStopper) {
     alert("Getting close to the end of your budget, keep that in mind!");
-    document.querySelector("body").style.backgroundColor = "#D9B611";
+    document.querySelector("body").style.backgroundColor = "#F3C13A";
+    document.querySelector("img").src = "images/appr.png"
     ifStopper = false;
   }
   updateExpensesTable();
@@ -169,7 +170,7 @@ clearButton.addEventListener("click", () => {
 
     expenses: [],
   };
-  document.querySelector("img").src = "images/budget-image.jpg";
+  document.querySelector("img").src = "images/make.gif";
   document.getElementById("add-button").disabled = false;
   document.querySelector("body").style.backgroundColor = "";
   ifStopper = true;
