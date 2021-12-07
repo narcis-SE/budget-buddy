@@ -12,7 +12,8 @@ body {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-right: 20px;
+  align-items: center;
 }
 
 .item-description-form-container {
@@ -35,7 +36,8 @@ body {
 }
 
 #budget {
-  /* width: 25%; */
+  align-items: center;
+  width: 35%;
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: bold;
@@ -81,10 +83,16 @@ body {
 }
 
 .clear {
-  background-color: rebeccapurple;
-  width: 100vw;
+  color: white;
+  position: relative;
+  font-weight: bold;
+  background-color: black;
+  width: 100px;
   height: 50px;
-  font-size: 30px;
+  font-size: 15px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .logo {
@@ -128,11 +136,10 @@ footer {
     height: 200px;
   }
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  #budget {
+    width: 100%;
   }
+
   td {
     color: white;
     font-size: 20px;
