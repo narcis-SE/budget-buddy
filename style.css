@@ -12,7 +12,7 @@ body {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .item-description-form-container {
@@ -35,7 +35,7 @@ body {
 }
 
 #budget {
-  /* width: 25%; */
+  width: 30%;
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: bold;
@@ -102,7 +102,7 @@ footer {
   align-items: center;
 }
 .item-header {
-  margin-bottom: 15px;
+  margin-bottom: px;
   font-size: 25px;
 }
 
@@ -118,6 +118,12 @@ footer {
   font-weight: bold;
 }
 
+.update-balance-button {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .budget-balance-container {
     display: flex;
@@ -125,6 +131,14 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     height: 200px;
+  }
+
+  #budget {
+    width: 100%;
+  }
+
+  .update-balance-button {
+    width: 100%;
   }
 
   footer {
