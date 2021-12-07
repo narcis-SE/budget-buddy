@@ -81,6 +81,7 @@ body {
 }
 
 .clear {
+  background-color: rebeccapurple;
   width: 100vw;
   height: 50px;
   font-size: 30px;
